@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-computed-key */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,12 +8,11 @@ import 'semantic-ui-css/components/site.min.css';
 import 'semantic-ui-css/components/container.min.css';
 import 'semantic-ui-css/components/icon.min.css';
 
-import '../styles/react-semantic-alert.css';
+import './toast.css';
 
-import SemanticToast from './semantic-toast';
-import { store } from './toast';
+import Toast from './Toast';
+import { store } from './toaster';
 
-/* eslint-disable no-useless-computed-key */
 const animations = {
     ['top-right']: 'fly left',
     ['top-center']: 'fly down',
@@ -21,7 +22,7 @@ const animations = {
     ['bottom-left']: 'fly right'
 };
 
-class SemanticToastContainer extends Component {
+class ToastContainer extends Component {
     static propTypes = {
         position: PropTypes.oneOf([
             'top-right',
@@ -53,16 +54,10 @@ class SemanticToastContainer extends Component {
     onClose = toastId => {
         const toast = this.state.toasts.find(value => value.id === toastId);
 
-        // toast has been removed already, fixes #1
-        if (!toast) {
-            return;
-        }
-
+        if (!toast) return;
         store.remove(toast);
 
-        if (toast.onClose) {
-            toast.onClose();
-        }
+        if (toast.onClose) toast.onClose();
     };
 
     updateToasts = () => {
@@ -72,22 +67,22 @@ class SemanticToastContainer extends Component {
     };
 
     render() {
-        const { position, className } = this.props;
+        const { position } = this.props;
         const animation = this.props.animation || animations[position];
 
         return (
-            <div className={`ui-alerts ${position} ${className}`}>
-                {this.state.toasts.map(toast => {
+            <div className={`ui-alerts ${position}`}>
+                {this.state.toasts.map((toast) => {
                     const {
                         id,
                         type = 'info',
                         title = '',
                         description = '',
-                        icon = 'announcement',
+                        icon,
                         time
                     } = toast;
                     return (
-                        <SemanticToast
+                        <Toast
                             key={id}
                             toastId={id}
                             type={type}
@@ -105,4 +100,4 @@ class SemanticToastContainer extends Component {
     }
 }
 
-export default SemanticToastContainer;
+export default ToastContainer;

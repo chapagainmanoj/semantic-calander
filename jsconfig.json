@@ -5,7 +5,7 @@
         "baseUrl": "src",
         "module": "es6",
         "paths": {
-            "*": ["lib/*"]
+            "*": ["src/*"]
         }
     },
     "exclude": ["node_modules", "build"]

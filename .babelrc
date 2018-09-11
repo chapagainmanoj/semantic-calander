@@ -7,7 +7,7 @@
         [
             "module-resolver",
             {
-                "root": ["./lib"]
+                "root": ["./src"]
             }
         ]
     ],

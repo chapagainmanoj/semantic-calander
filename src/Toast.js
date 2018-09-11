@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
@@ -5,18 +6,18 @@ import { Message } from 'semantic-ui-react';
 import 'semantic-ui-css/components/message.min.css';
 import 'semantic-ui-css/components/header.min.css';
 
-import withTransition from './with-transition';
+import withTransition from './Transition';
 
 const icons = {
-    info: 'announcement',
+    info: 'info circle',
     success: 'checkmark',
-    error: 'remove',
-    warning: 'warning circle'
+    error: 'exclamation circle',
+    warning: 'warning sign'
 };
 
-function SemanticToast(props) {
+function Toast(props) {
     const { type, title, description, onClose } = props;
-    const icon = props.icon || icons[props.type];
+    const icon = props.icon || icons[type];
 
     return (
         <Message
@@ -33,16 +34,16 @@ function SemanticToast(props) {
     );
 }
 
-SemanticToast.propTypes = {
+Toast.propTypes = {
     type: PropTypes.oneOf(['info', 'success', 'error', 'warning']).isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+    icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     onClose: PropTypes.func
 };
 
-SemanticToast.defaultProps = {
+Toast.defaultProps = {
     onClose: undefined
 };
 
-export default withTransition(SemanticToast);
+export default withTransition(Toast);

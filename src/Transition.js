@@ -23,7 +23,7 @@ export default function withTransitions(Component) {
         state = {
             visible: false,
             time: OPEN_TIME,
-            animation: 'pulse'
+            animation: 'scale'
         };
 
         componentDidMount() {
@@ -31,7 +31,6 @@ export default function withTransitions(Component) {
             if (this.props.time) {
                 this.timerId = setTimeout(this.onClose, this.props.time);
             }
-
             // start animation as soon as toast is mounted in the dom
             this.setState({ visible: true });
         }
