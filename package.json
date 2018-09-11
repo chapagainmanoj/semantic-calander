@@ -1,6 +1,6 @@
 {
   "name": "toaster",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React Semantic UI alerts library",
   "main": "build/index.js",
   "keywords": [
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "eslint": "eslint lib/**",
+    "eslint": "eslint src/**",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
