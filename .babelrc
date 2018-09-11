@@ -1,15 +1,9 @@
 {
-    "presets": ["env", "react"],
+    "presets": ["es2015", "env", "react"],
     "plugins": [
         "transform-object-rest-spread",
-        "transform-class-properties",
         "transform-async-to-generator",
-        [
-            "module-resolver",
-            {
-                "root": ["./src"]
-            }
-        ]
+        "transform-class-properties",
     ],
     "retainLines": true
 }
