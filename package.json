@@ -1,20 +1,20 @@
 {
-  "name": "calander",
+  "name": "semantic-calendar",
   "version": "1.0.0",
   "description": "React Semantic UI alerts library",
   "main": "build/index.js",
   "keywords": [
     "react",
     "semantic ui",
-    "toast",
-    "alerts"
+    "calander",
+    "inputs"
   ],
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
     "eslint": "eslint src/**",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Mane",
   "license": "MIT",
@@ -32,6 +32,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
@@ -39,6 +41,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.5.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0"
@@ -46,8 +50,21 @@
   "peer-dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
+    "react-dom": "^16.5.0"
+  },
+  "dependencies": {
+    "calendar": "^0.1.0",
+    "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chapagainmanoj/semantic-calander.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chapagainmanoj/semantic-calander/issues"
+  },
+  "homepage": "https://github.com/chapagainmanoj/semantic-calander#readme"
 }
